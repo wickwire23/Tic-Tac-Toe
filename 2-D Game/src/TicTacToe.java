@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class Checkers
+public class TicTacToe
 	{
 		static String name;
 		static String ticArray [] [] = new String [3][3];
