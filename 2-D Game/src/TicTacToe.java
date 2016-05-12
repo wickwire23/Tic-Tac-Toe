@@ -112,63 +112,68 @@ public class TicTacToe
 				{
 					
 					doYourMove();
-					checkWinConditions();
+					
 				}
 		}
 		public static void doYourMove()
 		{
 			playerMove= "X";
 			ticArray[row][col]=playerMove;
-			checkWinConditions();
+			checkPlayerWinConditions();
 			makeBoard();
 		}
 		public static void aiMove()
 		{
 			aiMove="O";
-			aiRow= (int)(Math.random()*2)+1;
-			aiCol=(int)(Math.random()*2)+1;
-			
-				if(aiMove.equals(" "))
+			aiRow=(int)(Math.random()*3);
+			aiCol=(int)(Math.random()*3);
+				if(ticArray[aiRow][aiCol].equals(" "))
 					{
 						ticArray[aiRow][aiCol]=aiMove;
 						makeBoard();
-						checkWinConditions();
+						checkAiWinConditions();
+					
 					}
 				else
 					{
-						checkWinConditions();
 						aiMove();
 						
 					}
 		}
-		public static void checkWinConditions()
+	
+		public static void checkPlayerWinConditions()
 			{
-				for(int col = 0 ; col < ticArray.length ; col++)
+				for(int i = 0 ; i < ticArray.length ; i++)
 					{
-						if(ticArray[0][col].equals("X"))
+						if(ticArray[0][i].equals("X"))
 							{
-								if(ticArray[1][col].equals("X"))
+								if(ticArray[1][i].equals("X"))
 									{
-										if(ticArray[2][col].equals("X"))
+										if(ticArray[2][i].equals("X"))
 											{
 												gameContinues = false;
 											}
-									}
-							}
-					}
-				for(int row = 0 ; row < ticArray.length ; row++)
-					{
-						if(ticArray[row][0].equals("X"))
-							{
-								if(ticArray[row][1].equals("X"))
-									{
-										if(ticArray[row][2].equals("X"))
-											{
-												gameContinues = false;
+										else{
+											return;
 											}
 									}
+								else{
+										return;
+									}
 							}
+						else{
+							return;
+						}
 					}
+				for(int q = 0 ; q < ticArray.length ; q++)
+					{
+						
+					}
+					
 			}
+		public static void checkAiWinConditions()
+		{
+			
+		}
 	
 	}
