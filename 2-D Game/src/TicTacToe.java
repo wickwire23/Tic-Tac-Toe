@@ -22,6 +22,7 @@ public class TicTacToe
 						boolean gameContinues = true;
 						while(gameContinues)
 							{
+								checkWinConditions();
 								aiMove();
 								playerMove();
 								checkForOwnOpenSpace();
@@ -119,8 +120,8 @@ public class TicTacToe
 		{
 			playerMove= "X";
 			ticArray[row][col]=playerMove;
-			checkPlayerWinConditions();
 			makeBoard();
+			checkWinConditions();
 		}
 		public static void aiMove()
 		{
@@ -131,7 +132,7 @@ public class TicTacToe
 					{
 						ticArray[aiRow][aiCol]=aiMove;
 						makeBoard();
-						checkAiWinConditions();
+						checkWinConditions();
 					
 					}
 				else
@@ -141,39 +142,24 @@ public class TicTacToe
 					}
 		}
 	
-		public static void checkPlayerWinConditions()
+		public static void checkWinConditions()
 			{
-				for(int i = 0 ; i < ticArray.length ; i++)
+				if(		
+					(ticArray[0][0].equals( ticArray[0][1].equals(( ticArray[0][2]))) && !ticArray[0][0].equals(" ")) ||
+					(ticArray[1][0].equals( ticArray[1][1].equals(( ticArray[1][2]))) && !ticArray[0][0].equals(" ")) ||
+					(ticArray[2][0].equals( ticArray[2][1].equals(( ticArray[2][2]))) && !ticArray[0][0].equals(" ")) ||
+					(ticArray[0][0].equals( ticArray[1][0].equals(( ticArray[2][0]))) && !ticArray[0][0].equals(" ")) ||
+					(ticArray[0][1].equals( ticArray[1][1].equals(( ticArray[2][1]))) && !ticArray[0][0].equals(" ")) ||
+					(ticArray[0][2].equals( ticArray[1][2].equals(( ticArray[2][2]))) && !ticArray[0][0].equals(" ")) ||
+					(ticArray[0][0].equals( ticArray[1][1].equals(( ticArray[2][2]))) && !ticArray[0][0].equals(" ")) ||
+					(ticArray[0][2].equals( ticArray[1][1].equals(( ticArray[2][0]))) && !ticArray[0][0].equals(" "))
+							)
 					{
-						if(ticArray[0][i].equals("X"))
-							{
-								if(ticArray[1][i].equals("X"))
-									{
-										if(ticArray[2][i].equals("X"))
-											{
-												gameContinues = false;
-											}
-										else{
-											return;
-											}
-									}
-								else{
-										return;
-									}
-							}
-						else{
-							return;
-						}
+						gameContinues = false;
 					}
-				for(int q = 0 ; q < ticArray.length ; q++)
-					{
+	
 						
-					}
-					
 			}
-		public static void checkAiWinConditions()
-		{
-			
-		}
+
 	
 	}
