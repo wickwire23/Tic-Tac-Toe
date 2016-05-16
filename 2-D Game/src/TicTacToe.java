@@ -155,7 +155,8 @@ public class TicTacToe
 					(ticArray[0][2].equals( ticArray[1][1].equals(( ticArray[2][0]))) && !ticArray[0][0].equals(" "))
 							)
 					{
-						gameContinues = false;
+						System.out.println(" You Have won!!!!");	
+						System.exit(0);
 					}
 	
 						
