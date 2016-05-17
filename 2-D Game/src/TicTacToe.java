@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.util.Scanner;
 public class TicTacToe
 	{
@@ -11,21 +12,27 @@ public class TicTacToe
 		static int aiRow=0;
 		static int aiCol=0;	
 		static boolean gameContinues;
+		static boolean a1;
+		static boolean a2;
+		static boolean a3;
+		static boolean b1;
+		static boolean b2;
+		static boolean b3;
+		static boolean c1;
+		static boolean c2;
+		static boolean c3;
 		public static void main(String[] args)
 			{
 				greetPlayer();
 				fillBlanks();
-				makeBoard();
-				playerMove();
-				doYourMove();
 					{
-						boolean gameContinues = true;
+						gameContinues = true;
 						while(gameContinues)
 							{
-								checkWinConditions();
-								aiMove();
 								playerMove();
 								checkForOwnOpenSpace();
+								aiMove();
+							
 							}
 						if (gameContinues = false)
 							{
@@ -42,26 +49,23 @@ public class TicTacToe
 			System.out.println("Hi"+ " " + name + "!"+ " "+ "Time to play some tic tac toe");
 			return name;
 		}
-		public static void makeBoard()
-			{
-				
-				System.out.println("  1   2    3");
-				System.out.println(" ------------");
-				System.out.println("A| "+ ticArray[0][0]+" | "+ ticArray[0][1]+" | "+ ticArray[0][2]+" |");
-				System.out.println(" ------------");
-				System.out.println("B| "+ ticArray[1][0]+" | "+ ticArray[1][1]+" | "+ ticArray[1][2]+" |");
-				System.out.println(" ------------");
-				System.out.println("C| "+ ticArray[2][0]+" | "+ ticArray[2][1]+" | "+ ticArray[2][2]+" |");
-				System.out.println(" ------------");
-			}
+//		public static void makeBoard()
+//			{
+//				ticArray[0][0]ticArray[0][1]+ticArray[0][2];
+//			
+//				ticArray[1][0] ticArray[1][1] ticArray[1][2]
+//			
+//				ticArray[2][0]ticArray[2][1]ticArray[2][2]
+//	
+//			}
 		public static void  fillBlanks()
 		{
 			for (int i = 0;i<3;i++)
 				{
-				System.out.println(" ");
+				System.out.println("");
 				for(int p= 0;p<3;p++)
 					{
-				System.out.print(ticArray[i][p]=" ");
+				System.out.print(ticArray[i][p]="");
 					}
 				}
 			System.out.println("You are X's");
@@ -118,49 +122,48 @@ public class TicTacToe
 		}
 		public static void doYourMove()
 		{
-			playerMove= "X";
-			ticArray[row][col]=playerMove;
-			makeBoard();
-			checkWinConditions();
+			
+			if(ticArray[row][col] == ticArray [0][0])
+				{
+					playerMove= "X";
+					ticArray[row][col]=playerMove;
+					 a1 = true;
+					 TicCanvas.repaint();
+				}
+			 else if(ticArray[row][col] == ticArray [0][1])
+				 {
+					 
+				 }
+				
+
+	
 		}
 		public static void aiMove()
 		{
 			aiMove="O";
 			aiRow=(int)(Math.random()*3);
 			aiCol=(int)(Math.random()*3);
-				if(ticArray[aiRow][aiCol].equals(" "))
-					{
-						ticArray[aiRow][aiCol]=aiMove;
-						makeBoard();
-						checkWinConditions();
-					
-					}
-				else
-					{
-						aiMove();
-						
-					}
 		}
 	
-		public static void checkWinConditions()
-			{
-				if(		
-					(ticArray[0][0].equals( ticArray[0][1].equals(( ticArray[0][2]))) && !ticArray[0][0].equals(" ")) ||
-					(ticArray[1][0].equals( ticArray[1][1].equals(( ticArray[1][2]))) && !ticArray[0][0].equals(" ")) ||
-					(ticArray[2][0].equals( ticArray[2][1].equals(( ticArray[2][2]))) && !ticArray[0][0].equals(" ")) ||
-					(ticArray[0][0].equals( ticArray[1][0].equals(( ticArray[2][0]))) && !ticArray[0][0].equals(" ")) ||
-					(ticArray[0][1].equals( ticArray[1][1].equals(( ticArray[2][1]))) && !ticArray[0][0].equals(" ")) ||
-					(ticArray[0][2].equals( ticArray[1][2].equals(( ticArray[2][2]))) && !ticArray[0][0].equals(" ")) ||
-					(ticArray[0][0].equals( ticArray[1][1].equals(( ticArray[2][2]))) && !ticArray[0][0].equals(" ")) ||
-					(ticArray[0][2].equals( ticArray[1][1].equals(( ticArray[2][0]))) && !ticArray[0][0].equals(" "))
-							)
-					{
-						System.out.println(" You Have won!!!!");	
-						System.exit(0);
-					}
-	
-						
-			}
+//		public static void checkWinConditions()
+//			{
+//				if(		
+//					(ticArray[0][0].equals( ticArray[0][1].equals(( ticArray[0][2]))) && !ticArray[0][0].equals(" ")) ||
+//					(ticArray[1][0].equals( ticArray[1][1].equals(( ticArray[1][2]))) && !ticArray[0][0].equals(" ")) ||
+//					(ticArray[2][0].equals( ticArray[2][1].equals(( ticArray[2][2]))) && !ticArray[0][0].equals(" ")) ||
+//					(ticArray[0][0].equals( ticArray[1][0].equals(( ticArray[2][0]))) && !ticArray[0][0].equals(" ")) ||
+//					(ticArray[0][1].equals( ticArray[1][1].equals(( ticArray[2][1]))) && !ticArray[0][0].equals(" ")) ||
+//					(ticArray[0][2].equals( ticArray[1][2].equals(( ticArray[2][2]))) && !ticArray[0][0].equals(" ")) ||
+//					(ticArray[0][0].equals( ticArray[1][1].equals(( ticArray[2][2]))) && !ticArray[0][0].equals(" ")) ||
+//					(ticArray[0][2].equals( ticArray[1][1].equals(( ticArray[2][0]))) && !ticArray[0][0].equals(" "))
+//							)
+//					{
+//						System.out.println(" You Have won!!!!");	
+//						System.exit(0);
+//					}
+//	
+//						
+//			}
 
 	
 	}
